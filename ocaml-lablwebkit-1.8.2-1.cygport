@@ -1,0 +1,26 @@
+inherit ocaml
+
+CATEGORY="OCaml"
+SUMMARY="OCaml bindings for WebKitGtk+"
+DESCRIPTION="Lablwebkit is a binding to the corresponding webkit-gtk version.
+Almost all of its API besides the DOM-related function is handled."
+HOMEPAGE="https://forge.ocamlcore.org/projects/cowboy"
+SRC_URI="https://forge.ocamlcore.org/frs/download.php/977/lablwebkit-${PV}.tar.gz"
+SRC_DIR="lablwebkit-${PV}"
+
+DIFF_EXCLUDES="myocamlbuild.ml"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	${OCAML} setup.ml -configure --prefix /usr --destdir ${D} || error
+	${OCAML} setup.ml -build || error
+}
+
+src_install() {
+	cd ${B}
+	dodir ${OCAML_STUBDIR}
+	export OCAMLFIND_DESTDIR="${D}${OCAML_LIBDIR}"
+	export OCAMLFIND_LDCONF=ignore
+	${OCAML} setup.ml -install || error
+}
