@@ -1,0 +1,11 @@
+--- origsrc/lablwebkit-1.8.2/setup.ml	2012-08-18 03:56:57.265596700 -0500
++++ src/lablwebkit-1.8.2/setup.ml	2013-10-29 14:09:41.004797800 -0500
+@@ -1344,8 +1344,6 @@ module OASISLibrary = struct
+         begin
+           ["lib"^cs.cs_name^(ext_lib ())]
+           ::
+-          ["dll"^cs.cs_name^(ext_dll ())]
+-          ::
+           acc_nopath
+         end
+       else

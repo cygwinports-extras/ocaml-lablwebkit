@@ -10,6 +10,9 @@ Almost all of its API besides the DOM-related function is handled."
 HOMEPAGE="https://forge.ocamlcore.org/projects/cowboy"
 SRC_URI="https://forge.ocamlcore.org/frs/download.php/977/lablwebkit-${VERSION}.tar.gz"
 SRC_DIR="lablwebkit-${VERSION}"
+if defined ARCH_x86_64; then
+PATCH_URI="1.8.2-static.patch"
+fi
 
 DIFF_EXCLUDES="myocamlbuild.ml"
 
