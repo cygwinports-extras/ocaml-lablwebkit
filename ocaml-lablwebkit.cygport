@@ -1,12 +1,15 @@
 inherit ocaml
 
-CATEGORY="OCaml"
+NAME="ocaml-lablwebkit"
+VERSION=1.8.2
+RELEASE=1
+CATEGORY="Libs"
 SUMMARY="OCaml bindings for WebKitGtk+"
 DESCRIPTION="Lablwebkit is a binding to the corresponding webkit-gtk version.
 Almost all of its API besides the DOM-related function is handled."
 HOMEPAGE="https://forge.ocamlcore.org/projects/cowboy"
-SRC_URI="https://forge.ocamlcore.org/frs/download.php/977/lablwebkit-${PV}.tar.gz"
-SRC_DIR="lablwebkit-${PV}"
+SRC_URI="https://forge.ocamlcore.org/frs/download.php/977/lablwebkit-${VERSION}.tar.gz"
+SRC_DIR="lablwebkit-${VERSION}"
 
 DIFF_EXCLUDES="myocamlbuild.ml"
 
