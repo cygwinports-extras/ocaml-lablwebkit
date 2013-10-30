@@ -2,7 +2,7 @@ inherit ocaml
 
 NAME="ocaml-lablwebkit"
 VERSION=1.8.2
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="OCaml bindings for WebKitGtk+"
 DESCRIPTION="Lablwebkit is a binding to the corresponding webkit-gtk version.
@@ -21,9 +21,10 @@ src_compile() {
 }
 
 src_install() {
-	cd ${B}
+	cd ${B}/_build
 	dodir ${OCAML_STUBDIR}
-	export OCAMLFIND_DESTDIR="${D}${OCAML_LIBDIR}"
-	export OCAMLFIND_LDCONF=ignore
-	${OCAML} setup.ml -install || error
+	${OCAMLFIND} install -destdir ${D}${OCAML_LIBDIR} -ldconf ignore \
+		lablwebkit ../META lablwebkit.*a liblablwebkit.a \
+		GtkWebkitTypes.{cmi,ml} */*.{cmi,ml} \
+		-optional dlllablwebkit.so
 }
