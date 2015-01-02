@@ -2,7 +2,7 @@ inherit ocaml
 
 NAME="ocaml-lablwebkit"
 VERSION=1.8.2
-RELEASE=2
+RELEASE=3
 CATEGORY="Libs"
 SUMMARY="OCaml bindings for WebKitGtk+"
 DESCRIPTION="Lablwebkit is a binding to the corresponding webkit-gtk version.
